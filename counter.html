@@ -111,7 +111,7 @@
   <button>Open Dialog</button>
   <button>Open Modal</button>
 
-  <dialog id="dialog">
+  <dialog>
     <h1 aria-label="9"></h1>
     <form method="dialog">
       <button>Close</button>
@@ -123,7 +123,7 @@
 (function (body) {
   const dialogBtn = body.firstElementChild;
   const modalBtn = dialogBtn.nextElementSibling;
-  
+  const dialog = modalBtn.nextElementSibling;
   body.onclick = function () {
     switch (event.target) {
       case this:
