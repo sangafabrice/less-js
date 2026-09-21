@@ -13,7 +13,7 @@
 
   h1 {
     animation: count 2s linear infinite alternate;
-    
+
     &::after {
       counter-reset: n var(--count);
       content: counter(n);
@@ -93,8 +93,8 @@
 <button onclick="dialog.showModal();">Open Modal</button>
 
 <dialog id="dialog">
-<h1 aria-label="9"></h1>
-<form method="dialog">
-  <button>Close</button>
-</form>
+  <h1 aria-label="9"></h1>
+  <form method="dialog">
+    <button>Close</button>
+  </form>
 </dialog>
