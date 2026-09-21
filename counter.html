@@ -37,6 +37,7 @@
     --pace: 600ms ease;
     transition: transform var(--pace), opacity var(--pace);
 
+    body:has(&:not(:modal))::before,
     &::backdrop {
       background-color: rgba(from black r g b / 0.6);
       backdrop-filter: blur(4px);
@@ -49,6 +50,23 @@
       @starting-style {
         opacity: 0;
         transform: translateY(-25vh);
+      }
+
+      &:not(:modal) {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @starting-style {
+          transform: translateY(-25vh);
+        }
+
+        body:has(&)::before {
+          content: '';
+          position: fixed;
+          inset: 0;
+          cursor: pointer;
+        }
       }
     }
 
@@ -89,6 +107,7 @@
   }
 </style>
 
+<body onclick="if(event.target === this) dialog.close();">
 <button onclick="dialog.show();">Open Dialog</button>
 <button onclick="dialog.showModal();">Open Modal</button>
 
@@ -98,3 +117,4 @@
     <button>Close</button>
   </form>
 </dialog>
+</body>
