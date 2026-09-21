@@ -89,10 +89,10 @@
   }
 </style>
 
-<button onclick="this.nextElementSibling.nextElementSibling.show();">Open Dialog</button>
-<button onclick="this.nextElementSibling.showModal();">Open Modal</button>
+<button onclick="dialog.show();">Open Dialog</button>
+<button onclick="dialog.showModal();">Open Modal</button>
 
-<dialog>
+<dialog id="dialog">
 <h1 aria-label="9"></h1>
 <form method="dialog">
   <button>Close</button>
