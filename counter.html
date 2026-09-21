@@ -13,13 +13,11 @@
 
   h1 {
     animation: count 2s linear infinite alternate;
-    font-size: 10rem;
-    text-align: center;
-    line-height: 100vh;
-
+    
     &::after {
       counter-reset: n var(--count);
       content: counter(n);
+      font-size: 10rem;
     }
   }
 
