@@ -120,17 +120,22 @@
 </body>
 
 <script>
-  document.body.onclick = function () {
+(function (body) {
+  const dialogBtn = body.firstElementChild;
+  const modalBtn = dialogBtn.nextElementSibling;
+  
+  body.onclick = function () {
     switch (event.target) {
       case this:
         dialog.close();
         break;
-      case this.firstElementChild:
+      case dialogBtn:
         dialog.show();
         break;
-      case this.firstElementChild.nextElementSibling:
+      case modalBtn:
         dialog.showModal();
         break;
     }
   }
+})(document.body);
 </script>
