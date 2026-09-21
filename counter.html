@@ -107,9 +107,9 @@
   }
 </style>
 
-<body onclick="if(event.target === this) dialog.close();">
-  <button onclick="dialog.show();">Open Dialog</button>
-  <button onclick="dialog.showModal();">Open Modal</button>
+<body>
+  <button>Open Dialog</button>
+  <button>Open Modal</button>
 
   <dialog id="dialog">
     <h1 aria-label="9"></h1>
@@ -118,3 +118,19 @@
     </form>
   </dialog>
 </body>
+
+<script>
+  document.body.onclick = function () {
+    switch (event.target) {
+      case this:
+        dialog.close();
+        break;
+      case this.firstElementChild:
+        dialog.show();
+        break;
+      case this.firstElementChild.nextElementSibling:
+        dialog.showModal();
+        break;
+    }
+  }
+</script>
