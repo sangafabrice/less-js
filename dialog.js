@@ -4,20 +4,27 @@
   const dialog = body.querySelector("dialog");
   const heading = dialog.querySelector("h1");
 
+  function openModal(className = "") {
+    dialog.className = className;
+    dialog.showModal();
+  }
+
+  function closeModal(className = "") {
+    if (dialog.className != className) return;
+    dialog.close();
+    dialog.className = "";
+  }
+
   window.addEventListener("click", function (event) {
     switch (event.target) {
       case document.body:
         dialog.close();
         break;
       case document.documentElement:
-        if (dialog.className != "custom-modal-1") break;
-        dialog.close();
-        dialog.className = "";
+        closeModal("custom-modal-1");
         break;
       case dialog:
-        if (dialog.className != "custom-modal-2") break;
-        dialog.close();
-        dialog.className = "";
+        closeModal("custom-modal-2");
         break;
       case closeBtn:
         dialog.className = "";
@@ -26,15 +33,13 @@
         dialog.open ? dialog.close() : dialog.show();
         break;
       case modalBtn:
-        dialog.showModal();
+        openModal();
         break;
       case modal2Btn:
-        dialog.className = "custom-modal-1";
-        dialog.showModal();
+        openModal("custom-modal-1");
         break;
       case modal3Btn:
-        dialog.className = "custom-modal-2"
-        dialog.showModal();
+        openModal("custom-modal-2");
         window.onresize();
     }
   });
