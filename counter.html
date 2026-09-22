@@ -77,10 +77,72 @@
 </style>
 
 <style>
-  body {
-    text-align: center;
+  :root {
+    interpolate-size: allow-keywords;
   }
 
+  details {
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: "\276F";
+        transform: rotate(90deg);
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &::details-content {
+      block-size: 0;
+      transition: block-size 0.3s ease, content-visibility 0.3s ease;
+      transition-behavior: allow-discrete;
+      overflow: hidden;
+      border: 2px solid black;
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      z-index: -10;
+      position: relative;
+    }
+
+    &[open] {
+      &::details-content {
+        block-size: auto;
+      }
+
+      summary::after {
+        transform: rotate(270deg);
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    details {
+
+      &::details-content,
+      & summary:after {
+        transition: none;
+      }
+    }
+  }
+</style>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    font-size: 0.85rem;
+    font-family: sans-serif;
+  }
+
+  summary,
   button {
     padding: 10px 16px;
     box-shadow: 0px 5px 0 black;
@@ -91,19 +153,35 @@
     font-weight: 600;
     cursor: pointer;
     color: white;
+    align-self: center;
 
+    details[open]>&:is(summary),
     &:hover {
       box-shadow: 0 0 black;
       transform: translateY(6px);
     }
 
-    &::before {
-      content: attr(data-role);
-    }
-
     form>& {
       background-color: red;
     }
+
+    &:is(summary) {
+      background-color: darkcyan;
+    }
+  }
+
+  p {
+    margin: 0;
+    padding: 16px 16px 10px;
+  }
+
+  code {
+    background-color: rgba(from gray r g b / 0.15);
+    padding-inline: 2px;
+  }
+
+  form[method=dialog] {
+    text-align: center;
   }
 </style>
 
@@ -116,6 +194,38 @@
     <button>Close</button>
   </form>
 </dialog>
+
+<details name="faq" open>
+  <summary>How to open a dialog?</summary>
+  <p>
+    The <code>dialog</code> element can be opened in non-modal mode using the
+    <code>HTMLDialogElement.show()</code>
+    method. In this mode the dialog does not block the background.
+    The pseudo-element <code>::backdrop</code> is not available in this mode.
+  </p>
+</details>
+<details name="faq">
+  <summary>How to open a modal dialog?</summary>
+  <p>
+    The <code>dialog</code> element can be opened in modal mode using the
+    <code>HTMLDialogElement.showModal()</code> method.
+    In this mode, the pseudo-element <code>::backdrop</code> is generated,
+    and the dialog blocks the background. Focus is trapped inside the dialog by default.
+    This means that the user can only interact with the <code>dialog</code>
+    element, and not with any other element on the page.
+  </p>
+</details>
+<details name="faq">
+  <summary>How to close a dialog?</summary>
+  <p>
+    The <code>dialog</code> element can be closed using the
+    <code>HTMLDialogElement.close()</code> method.
+    For a pure HTML method, use a <code>button</code> element inside a
+    <code>form</code> element with <code>method="dialog"</code> attribute.
+    The <code>ESC</code> key can also be used to close a modal
+    <code>dialog</code> element by default.
+  </p>
+</details>
 
 <script>
 {
