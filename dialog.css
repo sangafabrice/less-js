@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 dialog {
   --pace: 600ms ease;
   transition: transform var(--pace), opacity var(--pace);
@@ -76,6 +78,10 @@ dialog {
         font-size: 2rem;
         aspect-ratio: 1 / 1;
         padding: auto 0;
+
+        &::before {
+          content: '×';
+        }
       }
     }
 
