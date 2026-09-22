@@ -56,16 +56,22 @@
         position: fixed;
         top: 50%;
         transform: translateY(-50%);
+        z-index: calc(var(--index) + 1);
 
         @starting-style {
           transform: translateY(-25vh);
         }
 
-        body:has(&)::before {
-          content: '';
-          position: fixed;
-          inset: 0;
-          cursor: pointer;
+        body:has(&) {
+          --index: 2;
+
+          &::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            cursor: pointer;
+            z-index: var(--index);
+          }
         }
       }
     }
