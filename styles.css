@@ -25,7 +25,7 @@ button {
   color: white;
   align-self: center;
 
-  dialog:last-of-type[open] h1:not(:hover)+form &,
+  dialog.custom-modal-2[open] h1:not(:hover)+form &,
   details[open]>&:is(summary),
   &:hover {
     box-shadow: 0 0 black;

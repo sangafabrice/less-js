@@ -47,11 +47,11 @@ dialog {
 }
 
 dialog {
-  &:not(:first-of-type)::backdrop {
+  &:is(.custom-modal-1, .custom-modal-2)::backdrop {
     pointer-events: none;
   }
 
-  &:nth-of-type(2) {
+  &.custom-modal-1 {
     &[open] {
       cursor: default;
 
@@ -61,7 +61,7 @@ dialog {
     }
   }
 
-  &:last-of-type {
+  &.custom-modal-2 {
     padding: 80px;
     background-clip: content-box;
     border: none;
