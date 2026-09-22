@@ -1,18 +1,38 @@
 {
   const body = document.body;
-  const dialogBtn = body.firstElementChild;
-  const modalBtn = dialogBtn.nextElementSibling;
-  const dialog = modalBtn.nextElementSibling;
-  body.addEventListener("click", function () {
+  const [dialogBtn, modalBtn, modal2Btn, modal3Btn] = [...body.querySelectorAll("&>button")];
+  const [dialog, dialog2, dialog3] = [...document.getElementsByTagName("dialog")];
+  const dialog3Heading = dialog3.querySelector("h1");
+  
+  addEventListener("click", function () {
     switch (event.target) {
-      case this:
+      case document.body:
         dialog.close();
+        break;
+      case document.documentElement:
+        dialog2.close();
+        break;
+      case dialog3:
+        dialog3.close();
         break;
       case dialogBtn:
         dialog.open ? dialog.close() : dialog.show();
         break;
       case modalBtn:
         dialog.showModal();
+        break;
+      case modal2Btn:
+        dialog2.showModal();
+        break;
+      case modal3Btn:
+        dialog3.showModal();
+        onresize();
     }
   });
+
+  onresize = function () {
+    dialog3.style.padding = `${(innerHeight - dialog3Heading.getBoundingClientRect().height) / 2}px ${(innerWidth - dialog3Heading.getBoundingClientRect().width) / 2}px`;
+  }
+
+  onresize();
 }
