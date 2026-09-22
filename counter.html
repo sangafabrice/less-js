@@ -182,7 +182,7 @@
   }
 
   code {
-    background-color: rgba(from gray r g b / 0.15);
+    background-color: rgba(from yellow r g b / 0.3);
     padding-inline: 2px;
   }
 
@@ -202,34 +202,33 @@
 </dialog>
 
 <details name="faq" open>
-  <summary>How to open a dialog?</summary>
+  <summary>How do I open a dialog?</summary>
   <p>
-    The <code>dialog</code> element can be opened in non-modal mode using the
-    <code>HTMLDialogElement.show()</code>
-    method. In this mode the dialog does not block the background.
-    The pseudo-element <code>::backdrop</code> is not available in this mode.
+    To open a <code>&lt;dialog&gt;</code> element in non-modal mode,
+    call the <code>show()</code> method. In this mode, the dialog
+    appears without blocking interaction with the background content.
   </p>
 </details>
 <details name="faq">
-  <summary>How to open a modal dialog?</summary>
+  <summary>How do I open a dialog in modal mode?</summary>
   <p>
-    The <code>dialog</code> element can be opened in modal mode using the
-    <code>HTMLDialogElement.showModal()</code> method.
-    In this mode, the pseudo-element <code>::backdrop</code> is generated,
-    and the dialog blocks the background. Focus is trapped inside the dialog by default.
-    This means that the user can only interact with the <code>dialog</code>
-    element, and not with any other element on the page.
+    To open a <code>&lt;dialog&gt;</code> element in modal mode, use the
+    <code>showModal()</code> method. In this mode, a <code>::backdrop</code>
+    pseudo-element is automatically generated, and the dialog blocks
+    interaction with the background. Focus is trapped inside the dialog
+    by default, meaning the user can only interact with the dialog until
+    it is closed.
   </p>
 </details>
 <details name="faq">
-  <summary>How to close a dialog?</summary>
+  <summary>How do I close a dialog?</summary>
   <p>
-    The <code>dialog</code> element can be closed using the
-    <code>HTMLDialogElement.close()</code> method.
-    For a pure HTML method, use a <code>button</code> element inside a
-    <code>form</code> element with <code>method="dialog"</code> attribute.
-    The <code>ESC</code> key can also be used to close a modal
-    <code>dialog</code> element by default.
+    You can close a <code>&lt;dialog&gt;</code> element programmatically
+    using the <code>close()</code> method. For a pure HTML approach,
+    place a <code>&lt;button&gt;</code> inside a <code>&lt;form
+    method="dialog"&gt;</code>; clicking the button will
+    automatically close the dialog. By default, pressing the
+    <code>Esc</code> key also closes a modal dialog.
   </p>
 </details>
 
