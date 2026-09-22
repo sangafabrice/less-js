@@ -1,8 +1,8 @@
 {
   const body = document.body;
-  const [dialogBtn, modalBtn, modal2Btn, modal3Btn] = [...body.querySelectorAll("&>button")];
-  const [dialog, dialog2, dialog3] = [...document.getElementsByTagName("dialog")];
-  const dialog3Heading = dialog3.querySelector("h1");
+  const [dialogBtn, modalBtn, modal2Btn, modal3Btn, closeBtn] = [...body.getElementsByTagName("button")];
+  const dialog = body.querySelector("dialog");
+  const heading = dialog.querySelector("h1");
 
   window.addEventListener("click", function (event) {
     switch (event.target) {
@@ -10,10 +10,17 @@
         dialog.close();
         break;
       case document.documentElement:
-        dialog2.close();
+        if (dialog.className != "custom-modal-1") break;
+        dialog.close();
+        dialog.className = "";
         break;
-      case dialog3:
-        dialog3.close();
+      case dialog:
+        if (dialog.className != "custom-modal-2") break;
+        dialog.close();
+        dialog.className = "";
+        break;
+      case closeBtn:
+        dialog.className = "";
         break;
       case dialogBtn:
         dialog.open ? dialog.close() : dialog.show();
@@ -22,16 +29,18 @@
         dialog.showModal();
         break;
       case modal2Btn:
-        dialog2.showModal();
+        dialog.className = "custom-modal-1";
+        dialog.showModal();
         break;
       case modal3Btn:
-        dialog3.showModal();
+        dialog.className = "custom-modal-2"
+        dialog.showModal();
         window.onresize();
     }
   });
 
   window.onresize = function () {
-    dialog3.style.padding = `${(window.innerHeight - dialog3Heading.getBoundingClientRect().height) / 2}px ${(window.innerWidth - dialog3Heading.getBoundingClientRect().width) / 2}px`;
+    dialog.style.setProperty("--padding", `${(window.innerHeight - heading.getBoundingClientRect().height) / 2}px ${(window.innerWidth - heading.getBoundingClientRect().width) / 2}px`);
   }
 
   window.onresize();

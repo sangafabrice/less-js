@@ -62,7 +62,7 @@ dialog {
   }
 
   &.custom-modal-2 {
-    padding: 80px;
+    padding: var(--padding, 80px);
     background-clip: content-box;
     border: none;
     cursor: pointer;
