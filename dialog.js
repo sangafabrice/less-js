@@ -17,7 +17,7 @@
 
   window.addEventListener("click", function (event) {
     switch (event.target) {
-      case document.body:
+      case body:
         dialog.close();
         break;
       case document.documentElement:
@@ -30,7 +30,7 @@
         dialog.className = "";
         break;
       case dialogBtn:
-        dialog.open ? dialog.close() : dialog.show();
+        dialog.show();
         break;
       case modalBtn:
         openModal();
