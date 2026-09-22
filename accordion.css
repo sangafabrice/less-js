@@ -1,0 +1,54 @@
+:root {
+  interpolate-size: allow-keywords;
+}
+
+details {
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "\276F";
+      transform: rotate(90deg);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &::details-content {
+    block-size: 0;
+    transition: block-size 0.3s ease, content-visibility 0.3s ease;
+    transition-behavior: allow-discrete;
+    overflow: hidden;
+    border: 2px solid black;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    z-index: -10;
+    position: relative;
+  }
+
+  &[open] {
+    &::details-content {
+      block-size: auto;
+    }
+
+    summary::after {
+      transform: rotate(270deg);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  details {
+
+    &::details-content,
+    & summary:after {
+      transition: none;
+    }
+  }
+}

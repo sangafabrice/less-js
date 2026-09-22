@@ -1,0 +1,31 @@
+@property --count {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: true;
+}
+
+@keyframes count {
+  to {
+    --count: 9;
+  }
+}
+
+h1 {
+  animation: count 2s linear infinite alternate;
+
+  &::after {
+    counter-reset: n var(--count);
+    content: counter(n);
+    font-size: 10rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  h1 {
+    animation: none;
+
+    &::after {
+      content: attr(aria-label);
+    }
+  }
+}
