@@ -239,7 +239,7 @@
         dialog.close();
         break;
       case dialogBtn:
-        dialog.show();
+        dialog.open ? dialog.close():dialog.show();
         break;
       case modalBtn:
         dialog.showModal();
