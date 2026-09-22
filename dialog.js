@@ -7,6 +7,7 @@
   function openModal(className = "") {
     dialog.className = className;
     dialog.showModal();
+    window.onresize();
   }
 
   function closeModal(className = "") {
@@ -33,14 +34,9 @@
         dialog.show();
         break;
       case modalBtn:
-        openModal();
-        break;
       case modal2Btn:
-        openModal("custom-modal-1");
-        break;
       case modal3Btn:
-        openModal("custom-modal-2");
-        window.onresize();
+        openModal(event.target.value);
     }
   });
 
