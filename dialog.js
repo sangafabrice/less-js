@@ -4,8 +4,8 @@
   const [dialog, dialog2, dialog3] = [...document.getElementsByTagName("dialog")];
   const dialog3Heading = dialog3.querySelector("h1");
   
-  addEventListener("click", function () {
-    switch (event.target) {
+  window.addEventListener("click", function () {
+    switch (window.event.target) {
       case document.body:
         dialog.close();
         break;
@@ -26,13 +26,13 @@
         break;
       case modal3Btn:
         dialog3.showModal();
-        onresize();
+        window.onresize();
     }
   });
 
-  onresize = function () {
-    dialog3.style.padding = `${(innerHeight - dialog3Heading.getBoundingClientRect().height) / 2}px ${(innerWidth - dialog3Heading.getBoundingClientRect().width) / 2}px`;
+  window.onresize = function () {
+    dialog3.style.padding = `${(window.innerHeight - dialog3Heading.getBoundingClientRect().height) / 2}px ${(window.innerWidth - dialog3Heading.getBoundingClientRect().width) / 2}px`;
   }
 
-  onresize();
+  window.onresize();
 }
