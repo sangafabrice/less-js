@@ -3,9 +3,9 @@
   const [dialogBtn, modalBtn, modal2Btn, modal3Btn] = [...body.querySelectorAll("&>button")];
   const [dialog, dialog2, dialog3] = [...document.getElementsByTagName("dialog")];
   const dialog3Heading = dialog3.querySelector("h1");
-  
-  window.addEventListener("click", function () {
-    switch (window.event.target) {
+
+  window.addEventListener("click", function (event) {
+    switch (event.target) {
       case document.body:
         dialog.close();
         break;
