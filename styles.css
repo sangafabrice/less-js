@@ -39,7 +39,7 @@ summary {
   }
 }
 
-code {
+details[name] code {
   background-color: rgba(from yellow r g b / 0.3);
   padding-inline: 2px;
 }

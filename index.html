@@ -1,13 +1,52 @@
 <link rel="stylesheet" href="accordion.css">
+<link rel="stylesheet" href="menu.css">
 <link rel="stylesheet" href="styles.css">
 
-<details name="faq" open>
+<details>
+  <summary></summary>
+  <menu>
+    <li>
+      <label>
+        <input type="radio" name="menu-option" value="faq-accordions-pure-css" checked>
+        Accordions using pure CSS
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="menu-option" value="faq-native-dialog">
+        Semantic HTML dialogs
+      </label>
+    </li>
+  </menu>
+</details>
+
+<details name="faq-accordions-pure-css" open>
+  <summary>What are accordions?</summary>
+  Accordions are user interface components that organize content into
+  expandable and collapsible sections. They help present large amounts
+  of information in a compact, structured format, allowing users to
+  reveal details only when needed.
+</details>
+<details name="faq-accordions-pure-css">
+  <summary>Which elements create a pure CSS accordion?</summary>
+  The core of a pure CSS accordion relies on the <code>&lt;details&gt;</code>
+  and <code>&lt;summary&gt;</code> elements, a semantic pair of tags that
+  natively provide expand-and-collapse interaction without any scripting.
+</details>
+<details name="faq-accordions-pure-css">
+  <summary>How to group accordions?</summary>
+  To build an accordion set, assign the same <code>name</code> attribute to
+  each <code>&lt;details&gt;</code> element. This links them together so
+  only one section stays open at a time.
+</details>
+
+<details name="faq-native-dialog" open>
   <summary>How do I open a dialog?</summary>
   To open a <code>&lt;dialog&gt;</code> element in non-modal mode,
   call the <code>show()</code> method. In this mode, the dialog
   appears without blocking interaction with the background content.
 </details>
-<details name="faq">
+<details name="faq-native-dialog">
   <summary>How do I open a dialog in modal mode?</summary>
   To open a <code>&lt;dialog&gt;</code> element in modal mode, use the
   <code>showModal()</code> method. In this mode, a <code>::backdrop</code>
@@ -16,7 +55,7 @@
   by default, meaning the user can only interact with the dialog until
   it is closed.
 </details>
-<details name="faq">
+<details name="faq-native-dialog">
   <summary>How do I close a dialog?</summary>
   You can close a <code>&lt;dialog&gt;</code> element programmatically
   using the <code>close()</code> method. For a pure HTML approach,

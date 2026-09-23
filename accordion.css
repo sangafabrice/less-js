@@ -41,6 +41,7 @@ summary {
 
 @media (prefers-reduced-motion: reduce) {
   details {
+
     &::details-content,
     & summary:after {
       transition: none;
