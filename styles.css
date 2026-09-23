@@ -6,43 +6,28 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 2.25rem;
   font-size: 0.85rem;
   font-family: sans-serif;
   max-width: 600px;
   width: 100%;
 }
 
-summary,
-button {
+summary {
   padding: 10px 16px;
   box-shadow: 0px 5px 0 black;
   border: 2px solid black;
   border-radius: 6px;
-  background-color: green;
+  background-color: darkcyan;
   transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 600;
   cursor: pointer;
   color: white;
-  align-self: center;
 
-  dialog.custom-modal-2[open] h1:not(:hover)+form &,
-  details[open]>&:is(summary),
+  details[open]>&,
   &:hover {
     box-shadow: 0 0 black;
     transform: translateY(6px);
-  }
-
-  form>& {
-    background-color: red;
-    
-    &::before {
-      content: 'Close';
-    }
-  }
-
-  &:is(summary) {
-    background-color: darkcyan;
   }
 }
 
@@ -54,8 +39,4 @@ p {
 code {
   background-color: rgba(from yellow r g b / 0.3);
   padding-inline: 2px;
-}
-
-form[method=dialog] {
-  text-align: center;
 }
