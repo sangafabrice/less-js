@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 :root {
   interpolate-size: allow-keywords;
 }
@@ -13,7 +15,7 @@ details {
     }
 
     &::after {
-      content: "\276F";
+      content: "❯";
       transform: rotate(90deg);
       transition: transform 0.3s ease;
     }
