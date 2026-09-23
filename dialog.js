@@ -41,7 +41,11 @@
   });
 
   window.onresize = function () {
-    dialog.style.setProperty("--padding", `${(window.innerHeight - heading.getBoundingClientRect().height) / 2}px ${(window.innerWidth - heading.getBoundingClientRect().width) / 2}px`);
+    dialog.style.setProperty("--padding", `${
+      (window.innerHeight - heading.getBoundingClientRect().height) / 2
+    }px ${
+      (window.innerWidth - heading.getBoundingClientRect().width) / 2
+    }px`);
   }
 
   window.onresize();
